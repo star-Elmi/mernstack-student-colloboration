@@ -1,13 +1,58 @@
-// Group Controller
 const Group = require('../models/Group');
 
+//CREATE
 exports.createGroup = async (req, res) => {
   try {
-    const { name, subject, created_by } = req.body;
-    const group = new Group({ name, subject, created_by });
+    const group = new Group(req.body);
     await group.save();
     res.status(201).json(group);
   } catch (err) {
     res.status(400).json({ error: err.message });
+  }
+};
+
+//READ ALL
+exports.getAllGroups = async (req, res) => {
+  try {
+    const groups = await Group.find();
+    res.json(groups);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+//READ ONE
+exports.getGroupById = async (req, res) => {
+  try {
+    const group = await Group.findById(req.params.id);
+    if (!group) return res.status(404).json({ error: 'Group not found' });
+    res.json(group);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+//UPDATE
+exports.updateGroup = async (req, res) => {
+  try {
+    const updated = await Group.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true
+    });
+    if (!updated) return res.status(404).json({ error: 'Group not found' });
+    res.json(updated);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+};
+
+// DELETE
+exports.deleteGroup = async (req, res) => {
+  try {
+    const deleted = await Group.findByIdAndDelete(req.params.id);
+    if (!deleted) return res.status(404).json({ error: 'Group not found' });
+    res.json({ message: 'Group deleted' });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 };
