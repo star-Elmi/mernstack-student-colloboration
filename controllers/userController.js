@@ -1,6 +1,7 @@
 // Group Controller
 const User = require('../models/User');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
+
 
 exports.registerUser = async (req, res) => {
   try {
@@ -13,4 +14,19 @@ exports.registerUser = async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 };
+
+
+
+// get all users
+
+exports.getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find().select('-password');
+    res.status(200).json(users);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+
 

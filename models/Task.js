@@ -1,4 +1,5 @@
 
+
 const mongoose = require("mongoose");
 
 const taskSchema = new mongoose.Schema({
@@ -20,4 +21,5 @@ module.exports = mongoose.model("Task", taskSchema);
 // The model is exported for use in other parts of the application, such as controllers or services.
 // This code defines a Mongoose schema for tasks in a MongoDB database.
 // It includes fields for title, description, assigned user, group association, status, due date, and creation date.
+
 

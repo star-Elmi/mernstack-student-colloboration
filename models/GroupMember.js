@@ -1,3 +1,4 @@
+
 const mongoose = require("mongoose");
 
 const groupMemberSchema = new mongoose.Schema({
@@ -10,3 +11,4 @@ const groupMemberSchema = new mongoose.Schema({
 module.exports = mongoose.model("GroupMember", groupMemberSchema);
 
 // This model defines the structure for group members in a MongoDB database using Mongoose.
+
