@@ -7,6 +7,6 @@ const userSchema = new mongoose.Schema({
   type: { type: String, enum: ['student', 'admin', 'user'], default: 'student' },
   created_at: { type: Date, default: Date.now }
 });
- 
+
 
 module.exports = mongoose.model('User', userSchema);

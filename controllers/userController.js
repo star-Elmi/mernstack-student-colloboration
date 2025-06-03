@@ -2,6 +2,7 @@
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 
+
 exports.registerUser = async (req, res) => {
   try {
     const { full_name, email, password, type } = req.body;
@@ -15,6 +16,7 @@ exports.registerUser = async (req, res) => {
 };
 
 
+
 // get all users
 
 exports.getAllUsers = async (req, res) => {
@@ -25,5 +27,6 @@ exports.getAllUsers = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
 
 
