@@ -6,4 +6,4 @@ const fileController = require('../controllers/fileController');
 router.post('/', fileController.uploadFile);
 router.get('/', fileController.getAllFiles);
 
-// module.exports = router;
+module.exports = router;
