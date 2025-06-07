@@ -6,4 +6,4 @@ const discussionController = require('../controllers/discussionController');
 router.post('/', discussionController.createDiscussion);
 router.get('/', discussionController.getAllDiscussions);
 
-// module.exports = router;
+module.exports = router;
