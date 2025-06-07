@@ -1,5 +1,5 @@
 // File controller for handling discussion posts
-const DiscussionPost = require('../models/DiscussionPost');
+// const DiscussionPost = require('../models/DiscussionPost');
 
 // Create a new discussion post
 exports.createDiscussion = async (req, res) => {
