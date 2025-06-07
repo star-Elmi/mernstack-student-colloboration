@@ -13,11 +13,11 @@ try {
 };
 
 // Get all files
-// exports.getAllFiles = async (req, res) => {
-// try {
-//     const files = await File.find();
-//     res.json(files);
-// } catch (err) {
-//     res.status(500).json({ error: err.message });
-// }
-// };
+exports.getAllFiles = async (req, res) => {
+try {
+    const files = await File.find();
+    res.json(files);
+} catch (err) {
+    res.status(500).json({ error: err.message });
+}
+};
