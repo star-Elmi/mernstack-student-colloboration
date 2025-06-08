@@ -7,16 +7,12 @@ const userRoutes = require('./routes/userRoutes');
 const groupRoutes = require('./routes/groupRoutes');
 
 const groupMemberRoutes = require('./routes/groupMemberRoutes');
-const  taskRoutes = require('./routes/taskRoutes');
-
+const  taskRoutes = require('./routes/taskRoutes
 
 
 const feedbackRoutes  = require('./routes/calendarRoutes')
 const notificationRoutes = require('./routes/notification.Routes')
-
-
 dotenv.config();
-
 const app = express();
 app.use(express.json());
 app.use(cors());
