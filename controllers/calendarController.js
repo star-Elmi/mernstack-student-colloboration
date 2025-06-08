@@ -10,6 +10,7 @@ exports.createEvent = async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 };
+/////
 
 exports.getEvents = async (req, res) => {
   try {
