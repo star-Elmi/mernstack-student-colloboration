@@ -2,11 +2,7 @@
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 
-<<<<<<< HEAD
-
-=======
 //CREATE
->>>>>>> 250f513 (user/group validator)
 exports.registerUser = async (req, res) => {
   try {
     const { full_name, email, password, type } = req.body;
@@ -65,12 +61,8 @@ exports.deleteUser = async (req, res) => {
   }
 };
 
-<<<<<<< HEAD
 
 // get all users
-=======
->>>>>>> 250f513 (user/group validator)
-
 exports.getAllUsers = async (req, res) => {
   try {
     const users = await User.find().select('-password');
