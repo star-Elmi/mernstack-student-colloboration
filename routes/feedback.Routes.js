@@ -5,4 +5,4 @@ const feedbackController = require('../controllers/feedback.Controller');
 FeedbackRouter.post('/', feedbackController.createFeedback);
 FeedbackRouter.get('/:userId', feedbackController.getFeedbackForUser);
 
-module.exports = router;
+module.exports = FeedbackRouter;

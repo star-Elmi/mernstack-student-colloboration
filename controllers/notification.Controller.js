@@ -1,4 +1,4 @@
-exports.createNotification = async (req, res) => {
+const createNotification = async (req, res) => {
   try {
     const notif = new Notification(req.body);
     await notif.save();
@@ -8,7 +8,7 @@ exports.createNotification = async (req, res) => {
   }
 };
 
-exports.getNotifications = async (req, res) => {
+const getNotifications = async (req, res) => {
   try {
     const notifs = await Notification.find({ user_id: req.params.userId });
     res.json(notifs);
@@ -16,8 +16,7 @@ exports.getNotifications = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
-
-exports.markAsRead = async (req, res) => {
+const markAsRead = async (req, res) => {
   try {
     const updated = await Notification.findByIdAndUpdate(req.params.id, { is_read: true }, { new: true });
     res.json(updated);

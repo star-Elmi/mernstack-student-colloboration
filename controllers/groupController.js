@@ -1,7 +1,7 @@
 const Group = require('../models/Group');
 
 //CREATE
-exports.createGroup = async (req, res) => {
+const createGroup = async (req, res) => {
   try {
     const group = new Group(req.body);
     await group.save();
@@ -12,7 +12,7 @@ exports.createGroup = async (req, res) => {
 };
 
 //READ ALL
-exports.getAllGroups = async (req, res) => {
+const getAllGroups = async (req, res) => {
   try {
     const groups = await Group.find();
     res.json(groups);
@@ -22,7 +22,7 @@ exports.getAllGroups = async (req, res) => {
 };
 
 //READ ONE
-exports.getGroupById = async (req, res) => {
+const getGroupById = async (req, res) => {
   try {
     const group = await Group.findById(req.params.id);
     if (!group) return res.status(404).json({ error: 'Group not found' });
@@ -33,7 +33,7 @@ exports.getGroupById = async (req, res) => {
 };
 
 //UPDATE
-exports.updateGroup = async (req, res) => {
+const updateGroup = async (req, res) => {
   try {
     const updated = await Group.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -47,7 +47,7 @@ exports.updateGroup = async (req, res) => {
 };
 
 // DELETE
-exports.deleteGroup = async (req, res) => {
+const deleteGroup = async (req, res) => {
   try {
     const deleted = await Group.findByIdAndDelete(req.params.id);
     if (!deleted) return res.status(404).json({ error: 'Group not found' });
@@ -56,3 +56,14 @@ exports.deleteGroup = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+module.exports = {
+  createGroup ,
+  getAllGroups,
+  getGroupById ,
+  updateGroup,
+  deleteGroup
+
+  
+
+}

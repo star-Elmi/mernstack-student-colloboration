@@ -1,3 +1,4 @@
+
 // calendarRoutes.js
 const express = require('express');
 const router = express.Router();
@@ -9,3 +10,4 @@ router.post('/', auth, validate, calendarEventController.createEvent);
 router.get('/', auth, calendarEventController.getEvents);
 
 module.exports = router;
+
