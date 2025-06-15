@@ -4,15 +4,14 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 
 const userRoutes = require('./routes/userRoutes');
-const groupRoutes = require('./routes/groupRoutes');
-
 const groupMemberRoutes = require('./routes/groupMemberRoutes');
-const  taskRoutes = require('./routes/taskRoutes');
 
+const groupRoutes = require('./routes/groupRoutes');
+const taskRoutes = require('./routes/taskRoutes');
 
-
-const feedbackRoutes  = require('./routes/calendarRoutes')
+const feedbackRoutes  = require('./routes/feedback.Routes')
 const notificationRoutes = require('./routes/notification.Routes')
+
 
 
 dotenv.config();
@@ -27,6 +26,7 @@ app.use('/api/users', userRoutes);
 app.use('/api', groupRoutes);
 
 app.use('/api/group-members', groupMemberRoutes);
+app.use('/groups', groupMemberRoutes);
 app.use('/api/tasks', taskRoutes);
 
 app.use('/api/feedback', feedbackRoutes);
