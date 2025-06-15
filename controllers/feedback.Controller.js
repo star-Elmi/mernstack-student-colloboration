@@ -1,6 +1,6 @@
 const Feedback = require('../models/Feedback.schema')
 
-exports.createFeedback = async (req, res) => {
+const createFeedback = async (req, res) => {
   try {
     const feedback = new Feedback(req.body);
     await feedback.save();
@@ -10,7 +10,7 @@ exports.createFeedback = async (req, res) => {
   }
 };
 
-exports.getFeedbackForUser = async (req, res) => {
+const getFeedbackForUser = async (req, res) => {
   try {
     const feedbacks = await Feedback.find({ to_user_id: req.params.userId }).populate('from_user_id group_id');
     res.json(feedbacks);

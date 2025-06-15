@@ -2,11 +2,9 @@
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 
-<<<<<<< HEAD
 
-=======
-//CREATE
->>>>>>> 250f513 (user/group validator)
+
+('user/group validator')
 exports.registerUser = async (req, res) => {
   try {
     const { full_name, email, password, type } = req.body;
@@ -64,12 +62,7 @@ exports.deleteUser = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
-
-<<<<<<< HEAD
-
-// get all users
-=======
->>>>>>> 250f513 (user/group validator)
+('user/group validator')
 
 exports.getAllUsers = async (req, res) => {
   try {
