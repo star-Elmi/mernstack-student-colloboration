@@ -3,8 +3,12 @@ const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 
 
+//CREATE user
+
+
 
 ('user/group validator')
+
 exports.registerUser = async (req, res) => {
   try {
     const { full_name, email, password, type } = req.body;
@@ -17,7 +21,7 @@ exports.registerUser = async (req, res) => {
   }
 };
 
-// READ ALL
+// READ ALL users
 exports.getAllUsers = async (req, res) => {
   try {
     const users = await User.find();
@@ -27,7 +31,7 @@ exports.getAllUsers = async (req, res) => {
   }
 };
 
-//READ ONE
+//READ ONE user by ID
 exports.getUserById = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
@@ -38,7 +42,7 @@ exports.getUserById = async (req, res) => {
   }
 };
 
-//UPDATE
+//UPDATE user by ID
 exports.updateUser = async (req, res) => {
   try {
     const updated = await User.findByIdAndUpdate(req.params.id, req.body, {
@@ -52,7 +56,7 @@ exports.updateUser = async (req, res) => {
   }
 };
 
-// DELETE
+// DELETE user by ID
 exports.deleteUser = async (req, res) => {
   try {
     const deleted = await User.findByIdAndDelete(req.params.id);
@@ -62,7 +66,13 @@ exports.deleteUser = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+
+
+// get all users
+
 ('user/group validator')
+
 
 exports.getAllUsers = async (req, res) => {
   try {
