@@ -5,15 +5,18 @@ const cors = require('cors');
 
 const userRoutes = require('./routes/userRoutes');
 const groupMemberRoutes = require('./routes/groupMemberRoutes');
-
-const  taskRoutes = require('./routes/taskRoutes
-
-
+const fileRoutes = require('./routes/fileRoutes');
 const groupRoutes = require('./routes/groupRoutes');
 const taskRoutes = require('./routes/taskRoutes');
+const calendarRoutes = require('./routes/calendarRoutes');
 
 const feedbackRoutes  = require('./routes/feedback.Routes')
 const notificationRoutes = require('./routes/notification.Routes')
+
+
+
+
+
 
 dotenv.config();
 const app = express();
@@ -31,6 +34,8 @@ app.use('/api/tasks', taskRoutes);
 
 app.use('/api/feedback', feedbackRoutes);
 app.use('/api/notifications', notificationRoutes);
+app.use('/api/files', fileRoutes);
+app.use('/api/calendar', calendarRoutes);
 
 
 const PORT = process.env.PORT || 5000;
